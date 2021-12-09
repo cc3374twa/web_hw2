@@ -149,7 +149,7 @@ void *server_thread(void *p){
 			strcat(msg,tmp);
 			send(oppofd,msg,strlen(msg),0);
 		}
-        else if(buffer2[0]=='#')
+        else if(buffer2[0]=='!')
 		{
             int n = atoi(&buffer2[1]);
             int oppofd;
@@ -160,7 +160,7 @@ void *server_thread(void *p){
 			
             oppofd=atoi(ptr);
 			
-            sprintf(tmp,"#%d",n);
+            sprintf(tmp,"!%d",n);
 			
             printf("[%d] buf=%s\n",fd,tmp);
 			
