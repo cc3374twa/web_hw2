@@ -38,9 +38,9 @@ ps.
 
 用@fd 發送邀請 等待回應
 
-收到邀請: 輸入yes enter 再按enter
+收到邀請: 輸入OK enter 再按enter
 
-開始下棋: 輸入#0~#8下棋
+開始下棋: 輸入!0~!8下棋
 
 登出: logout
 
