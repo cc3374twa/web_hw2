@@ -114,7 +114,7 @@ void start(){
         if(Game==1&&MyTurn==1&&f==1)
 		{
 			board();
-			printf("[Client Message] Please enter chess with  #(0-8)\n");
+			printf("[Client Message] Please enter chess with  !(0-8)\n");
 			f=0;
 		}
 		if(Game==1){
@@ -141,7 +141,7 @@ void start(){
 			sprintf(msg,"%s",buf);
 			send(sockfd,msg,strlen(msg),0);
 		}
-		else if(buf[0]=='#')
+		else if(buf[0]=='!')
 		{
 			if(Game==0)
                 printf("[Client Message] No Game is playing.\n");
@@ -173,12 +173,12 @@ void start(){
                         printf("\n[Client Message] Waiting for your opponent....\n");
                     }
 					MyTurn=0;   
-					sprintf(msg,"#%d %d",n,oppofd);
+					sprintf(msg,"!%d %d",n,oppofd);
 					send(sockfd,msg,strlen(msg),0);
 				}
 			}
 		}
-		else if(strcmp(buf,"yes")==0)
+		else if(strcmp(buf,"OK")==0)
 		{
 			printf("[Client Message]connect sucessful\n");
 			
@@ -208,7 +208,7 @@ void start(){
                 printf("[Client Message] Waiting for your opponent....\n");
             }
 		}
-		else if(buf[0]=='#')
+		else if(buf[0]=='!')
 		{
 			x[atoi(&buf[1])]=p2;
 			if(iswin(p2))
@@ -292,7 +292,7 @@ void* recv_thread(void* p){
 			else 
                 printf("[Client Message] Waiting for your opponent....\n");
 		}
-		else if(buf[0]=='#')
+		else if(buf[0]=='!')
 		{
 			x[atoi(&buf[1])]=p2;
 			if(iswin(p2))
@@ -307,7 +307,7 @@ void* recv_thread(void* p){
 			else{
 				MyTurn=1;
 				board();
-				printf("[Client Message] Please enter #(0-8)\n");
+				printf("[Client Message] Please enter !(0-8)\n");
 			}
 		}
 		else{
